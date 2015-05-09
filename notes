@@ -1,0 +1,23 @@
+My Mama Collage: Family Mother's Day stories
+Private fam list - ziggeo
+Public list - ziggeo
+Create mama collage: dropbox
+Group order based on location - groupon
+Call phone
+Pay each other: paypal/venmo
+
+ziggeo
+dropbox
+paypal/venmo
+neustar
+twilio
+
+## Neustar
+Element ID 512: Caller Name - Returns caller name from Neustar database.  No network query is performed.
+  • Video Application: Depending on the information available, the service could be used to display a name for a number that is arriving, that is unknown.  Or, provide a name for a person being called, if the caller is returning a call from an unknown number.  (Reverse Phone Look-Up).
+
+Element ID 1304: CallerComplete Public Full Name and Address.  Returns the full name and address associated with a caller’s 10-digit phone number. If a non-Public Record is found, the name and mailing address information will be blank.
+  • Video Application: This could be used in a mapping application to show relative location of the person’s home to the subscriber.
+
+Element ID 1700: Census Demographics - 48 different variables are returned including, but not limited to the following, age groupings, household ranges, school and average number of vehicles.
+  • Video Application: Real estate broker could receive some on the screen information about a potential buyer/seller prior to meeting.

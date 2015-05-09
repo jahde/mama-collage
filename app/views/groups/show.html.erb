@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+<script src="//assets.ziggeo.com/js/ziggeo-jquery-json2-betajs-player.min.js"></script>
+<script>ZiggeoApi.token = "bfbbdcf69c71ea2aa7174cba53ffd6e1";</script>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <form action="/groups/<%= @group.id %>/users" method="post">
+    <input type="text" name="email">
+    <input type="hidden" name="group_id" value="<%= @group.id %>">
+
+    <button>Add a new family member</button>
+  </form>
+
+  <% @ziggeo = Ziggeo.new("bfbbdcf69c71ea2aa7174cba53ffd6e1", "66d678828b9054757a4046ae9664d0d3", "27fe67bf53f3620e99385c229fa60cde") %>
+  <h1>Happy Mother's Day!!!</h1>
+
+    <div class="row">
+      <div class="container">
+
+  <!--       <div class="col-md-4">
+          left content
+        </div>
+
+        <div class="col-md-4 col-md-offset-4">
+
+          <div class="yellow-background">
+            text -->
+            <div class="pull-right">
+              <h2>Group Members</h2>
+              <% @group.users.each do |fam| %>
+                <a href="/users/<%= fam.id %>"><%= fam.email %></a>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  <% if user_signed_in? %>
+  <ziggeo ziggeo-width=320
+          ziggeo-height=240
+          ziggeo-tags="abc,def">
+  </ziggeo>
+  <% end %>
+
+  <% @ziggeo.videos().index().each do |video| %>
+  <% string = video['token'] %>
+    <div style="padding-top: 30px">
+      <ziggeo ziggeo-video=<%= string %>
+              ziggeo-width=600
+              ziggeo-height=450>
+      </ziggeo>
+    </div>
+  <% end %>
+
+  <script>
+  //   ZiggeoApi.Videos.index({}, {
+  //     success: function (args, videos) {
+  //       // videos is an array of all the videos
+  //       // the following code dynamically adds all the videos to the page
+  //       for (var i = 0; i < videos.length; ++i) {
+  //         $("body").append("<ziggeo ziggeo-video='" + videos[i].token + "'></ziggeo>");
+  //       }
+  //     }
+  //   });
+  // </script>
+
+</body>
+</html>
+
+
+

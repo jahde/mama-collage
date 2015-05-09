@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+<script src="//assets.ziggeo.com/js/ziggeo-jquery-json2-betajs-player.min.js"></script>
+<script>ZiggeoApi.token = "bfbbdcf69c71ea2aa7174cba53ffd6e1";</script>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+  <form action="/groups" method="post">
+    <input type="text" name="name">
+
+    <button>Create a new group</button>
+  </form>
+
+  <% @ziggeo = Ziggeo.new("bfbbdcf69c71ea2aa7174cba53ffd6e1", "66d678828b9054757a4046ae9664d0d3", "27fe67bf53f3620e99385c229fa60cde") %>
+  <h1>Happy Mother's Day!!!</h1>
+
+  <h2>Here are some collages from around the world:</h2>
+
+  <% if user_signed_in? %>
+  <ziggeo ziggeo-width=320
+          ziggeo-height=240>
+  </ziggeo>
+  <% end %>
+
+  <section>
+    <div class="col-md-3">
+      <% @ziggeo.videos().index().each do |video| %>
+      <% string = video['token'] %>
+        <div style="padding-top: 30px">
+          <ziggeo ziggeo-video=<%= string %>
+                  ziggeo-width=600
+                  ziggeo-height=450>
+          </ziggeo>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+
+</body>
+</html>
+
+
+
