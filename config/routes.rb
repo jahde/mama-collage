@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get '/groups/deals', to: 'groups#deals'
 
-  resources :users
+  resources :users, only: [:show]
 
   resources :groups do
     resources :users

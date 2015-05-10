@@ -11,6 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   # def create
   #   super
+  #   @group = Group.find(params[:group_id])
+  #   @user = User.find_by(email: params[:email])
+  #   @group.users << @user
+  #   redirect_to @group
   # end
 
   # GET /resource/edit

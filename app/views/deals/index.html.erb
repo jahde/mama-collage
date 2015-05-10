@@ -25,14 +25,18 @@
             <div class="pull-right">
               <h2>Group Members</h2>
               <% @group.users.each do |fam| %>
-                <a href="/users/<%= fam.id %>"><%= fam.email %></a>
+                <ul>
+                  <li><a href="/users/<%= fam.id %>"><%= fam.email %></a></li>
+                </ul>
               <% end %>
 
               <div style="padding-top:50px">
                 <h2>Business Lookup</h2>
-                <% @group.users.each do |fam| %>
-                  <a href="/users/<%= fam.id %>"><%= fam.email %></a>
-                <% end %>
+                <form action="" id="lookup">
+                  <input type="text" id="lookup-text">
+                </form>
+
+                <%= link_to "Click Me", 'https://gwydemo.targusinfo.com/access/query?svcid=9843464225&username=videoHack&password=HackDay524&elems=1304&key1=3154872111' %>
               </div>
             </div>
           </div>
@@ -200,8 +204,31 @@
 
   <!-- groupon end -->
 
+<script>
+  $('#lookup').on('submit',function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: 'https://gwydemo.targusinfo.com/access/query',
+      data: {
+        key1: $('#lookup-text').val(),
+        elems: '1304',
+        password: 'HackDay524',
+        username: 'videoHack',
+        svcid: '9843464225',
+      },
+      dataType: 'application/xml',
+      method: 'GET',
+      success: function(data) {
+        console.log(data);
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
+
+
 
 
 

@@ -32,9 +32,16 @@
             <div class="pull-right">
               <h2>Group Members</h2>
               <% @group.users.each do |fam| %>
-                <a href="/users/<%= fam.id %>"><%= fam.email %></a>
+                <ul>
+                  <li><a href="/users/<%= fam.id %>"><%= fam.email %></a></li>
+                </ul>
+
               <% end %>
+
+              <h2>MOTHERS DAY DEALS</h2>
+                <a href="/groups/<%= @group.id %>/deals">Goodies Here!</a>
             </div>
+
           </div>
 
         </div>
@@ -42,10 +49,18 @@
     </div>
 
   <% if user_signed_in? %>
-  <ziggeo ziggeo-width=320
-          ziggeo-height=240
-          ziggeo-tags="abc,def">
-  </ziggeo>
+  <div id="img_container">
+    <ziggeo ziggeo-width=600
+            ziggeo-height=450
+            ziggeo-tags="private">
+    </ziggeo>
+
+    <div onclick="style.display = 'none'">
+      <button class="button btn-success" onclick="style.display = 'none'">Public</button>
+
+      <button class="button btn-warning">Private</button>
+    </div>
+  </div>
   <% end %>
 
   <% @ziggeo.videos().index().each do |video| %>
@@ -57,18 +72,6 @@
       </ziggeo>
     </div>
   <% end %>
-
-  <script>
-  //   ZiggeoApi.Videos.index({}, {
-  //     success: function (args, videos) {
-  //       // videos is an array of all the videos
-  //       // the following code dynamically adds all the videos to the page
-  //       for (var i = 0; i < videos.length; ++i) {
-  //         $("body").append("<ziggeo ziggeo-video='" + videos[i].token + "'></ziggeo>");
-  //       }
-  //     }
-  //   });
-  // </script>
 
 </body>
 </html>
